@@ -1,3 +1,7 @@
+# application.yml已被移除！
+
+# application.yml has been removed!
+
 
 # 三创赛作品说明
 

@@ -1,0 +1,123 @@
+/* 保持原有样式不变 */
+.form-content {
+    background: #ffffff;
+    padding: 10px 10px 0 10px;
+}
+
+.table-content {
+    background: #ffffff;
+    padding: 0 10px;
+}
+
+.pagination-content {
+    margin-top: 10px;
+    padding-bottom: 10px;
+    text-align: right;
+}
+
+.detail-form-content {
+    background: #ffffff;
+    padding: 10px;
+    .el-input {
+        min-width: 200px;
+        max-width: 600px;
+    }
+}
+
+.bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+
+.login-form {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 350px;
+    height: 100%;
+    background: #ffffff;
+    padding: 0 60px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.h1 {
+    margin-top: 80px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.btn-login {
+    margin-top: 50px;
+    width: 100%;
+}
+
+/* 修改后的样式 */
+
+/* 卡片容器 */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;  /* 允许换行 */
+    gap: 20px;  /* 卡片之间的间距 */
+    justify-content: space-between;  /* 卡片之间均匀分布 */
+    padding: 10px;
+}
+
+/* 单个卡片 */
+.card {
+    width: 30%;  /* 每行显示三个卡片 */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 卡片的鼠标悬停效果 */
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* 卡片的头部样式 */
+.card-header {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* 卡片的主体内容 */
+.card-body {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* 卡片底部按钮的样式 */
+.card-footer {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+/* 卡片中的图片 */
+.card img {
+    border-radius: 4px;
+}
+
+/* 响应式样式：小屏幕时，卡片宽度调整 */
+@media (max-width: 768px) {
+    .card {
+        width: 48%;  /* 两个卡片一行 */
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 100%;  /* 每行一个卡片 */
+    }
+}

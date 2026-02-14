@@ -1,0 +1,55 @@
+-- 聊天会话表
+CREATE TABLE `chat_session` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+  `session_type` varchar(20) NOT NULL COMMENT '会话类型',
+  `user_id` bigint(20) DEFAULT NULL COMMENT '用户ID',
+  `user_account` varchar(100) DEFAULT NULL COMMENT '用户账号',
+  `shop_id` bigint(20) DEFAULT NULL COMMENT '商家ID',
+  `shop_account` varchar(100) DEFAULT NULL COMMENT '商家账号',
+  `employee_id` bigint(20) DEFAULT NULL COMMENT '员工ID',
+  `employee_number` varchar(100) DEFAULT NULL COMMENT '员工工号',
+  `last_message` varchar(500) DEFAULT NULL COMMENT '最后一条消息',
+  `user_unread` int(11) NOT NULL DEFAULT '0' COMMENT '用户未读消息数',
+  `shop_unread` int(11) NOT NULL DEFAULT '0' COMMENT '商家未读消息数',
+  `admin_unread` int(11) NOT NULL DEFAULT '0' COMMENT '管理员未读消息数',
+  `addtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updatetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`),
+  KEY `idx_user_id` (`user_id`),
+  KEY `idx_shop_id` (`shop_id`),
+  KEY `idx_employee_id` (`employee_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='聊天会话';
+
+-- 聊天消息表
+CREATE TABLE `chat_message` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+  `session_id` bigint(20) NOT NULL COMMENT '会话ID',
+  `sender_type` varchar(20) NOT NULL COMMENT '发送者类型',
+  `sender_id` bigint(20) NOT NULL COMMENT '发送者ID',
+  `sender_name` varchar(100) DEFAULT NULL COMMENT '发送者名称',
+  `content` text NOT NULL COMMENT '消息内容',
+  `is_read` int(11) NOT NULL DEFAULT '0' COMMENT '是否已读(0:未读，1:已读)',
+  `addtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '发送时间',
+  PRIMARY KEY (`id`),
+  KEY `idx_session_id` (`session_id`),
+  KEY `idx_sender_id` (`sender_id`),
+  KEY `idx_addtime` (`addtime`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='聊天消息';
+
+
+------2025年3月19日更新：
+ALTER TABLE dingdanxinxi ADD COLUMN hasInput BOOLEAN DEFAULT 0;
+
+
+-----20205年3月20日更新：
+CREATE TABLE lockerstatus (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255),
+    longitude FLOAT,
+    latitude FLOAT,
+    total INT,
+    used INT,
+    description TEXT,
+    CONSTRAINT chk_total CHECK (total > 0),
+    CONSTRAINT chk_used CHECK (used >= 0)
+);

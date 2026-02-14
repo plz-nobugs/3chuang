@@ -1,0 +1,38 @@
+# Ignore node_modules in specific path
+/src/main/resources/admin/admin/node_modules/
+
+# Ignore target/
+target/
+
+# Maven wrapper jar
+!.mvn/wrapper/maven-wrapper.jar
+
+# Ignore src/main and src/test except for certain files
+!**/src/main/**
+!**/src/test/**
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+
+### VS Code ###
+.vscode/

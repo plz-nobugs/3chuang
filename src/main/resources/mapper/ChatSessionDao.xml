@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.ChatSessionDao">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.ChatSessionEntity" id="chatSessionMap">
+        <result property="id" column="id"/>
+        <result property="sessionType" column="session_type"/>
+        <result property="userId" column="user_id"/>
+        <result property="userAccount" column="user_account"/>
+        <result property="shopId" column="shop_id"/>
+        <result property="shopAccount" column="shop_account"/>
+        <result property="employeeId" column="employee_id"/>
+        <result property="employeeNumber" column="employee_number"/>
+        <result property="lastMessage" column="last_message"/>
+        <result property="userUnread" column="user_unread"/>
+        <result property="shopUnread" column="shop_unread"/>
+        <result property="adminUnread" column="admin_unread"/>
+        <result property="addtime" column="addtime"/>
+        <result property="updatetime" column="updatetime"/>
+    </resultMap>
+
+    <select id="selectListView" resultType="com.entity.ChatSessionEntity">
+        SELECT * FROM chat_session
+        <where>
+            <if test="ew != null">
+                ${ew.sqlSegment}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectView" resultType="com.entity.ChatSessionEntity">
+        SELECT * FROM chat_session WHERE id = #{id}
+    </select>
+
+</mapper>
